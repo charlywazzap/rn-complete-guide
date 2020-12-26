@@ -31,18 +31,17 @@ export const GoalInput = props => {
 
 const styles = StyleSheet.create({
     viewInput: {
-      flexDirection: "row",
-      width: "100%",
-      justifyContent: "space-between",
-      alignContent: "center",
-      alignItems: "center"
+        flex:1,
+        justifyContent: "center",
+        alignItems: "center",
+        margin: 30,
     },
     textInput: {
-      flex: 1,
-      borderColor: "black",
-      borderBottomWidth: 1,
-      padding: 10,
-      marginBottom: 5,
+        width:'80%',
+        borderColor: "black",
+        borderBottomWidth: 1,
+        padding: 10,
+        marginBottom: 5,
       
     }
   });
