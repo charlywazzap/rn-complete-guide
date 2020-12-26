@@ -26,7 +26,7 @@ export default function App() {
         <Button title="Add" onPress={ addGoalHandler }/>
       </View>
       <View>
-          { courseGoals.map((goal, idx) => <Text key={idx}>{goal}</Text> ) }
+          { courseGoals.map((goal, idx) => <View style={styles.listItem} key={idx} ><Text >{goal}</Text></View> ) }
       </View>
       <StatusBar style="auto" />
     </View>
@@ -35,6 +35,13 @@ export default function App() {
 
 //https://reactnative.dev/docs/flexbox
 const styles = StyleSheet.create({
+  listItem: {
+    padding: 10,
+    marginBottom:10,
+    backgroundColor: "#ccc",
+    borderColor: "black",
+    borderWidth: 1,
+  },
   viewInput: {
     flexDirection: "row",
     width: "100%",
