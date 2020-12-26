@@ -1,13 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { FlatList, StyleSheet View } from 'react-native';
 import { GoalInput } from './components/GoalInput';
 import { GoalItem } from './components/GoalItem';
 
 export default function App() {
-  const [ goalText, setGoal ] = useState('')
   const [ courseGoals, setcourseGoals ] = useState([])
-
 
   const addGoalHandler = (goalTitle) => {
     setcourseGoals(courseGoals => [...courseGoals,{ id: Math.random().toString(), myValue: goalTitle } ])
