@@ -7,6 +7,7 @@ import { GoalItem } from './components/GoalItem';
 export default function App() {
   const [ courseGoals, setcourseGoals ] = useState([])
   const [ isAddMode , setisAddMode ] = useState(false)
+
   const addGoalHandler = (goalTitle) => {
     setcourseGoals(courseGoals => [...courseGoals,{ id: Math.random().toString(), myValue: goalTitle } ])
     setisAddMode(false)
@@ -22,10 +23,14 @@ export default function App() {
     setisAddMode(true)
   }
 
+  const hideModal = () => {
+    setisAddMode(false)
+  }
+
   return (
     <View style={styles.container}>
-      <Button title="Add New Goal" onPress={ showModal }/>
-      <GoalInput visible={isAddMode} onAddGoal={addGoalHandler} />
+      <Button title="Add New Goal" onPress={ showModal }  />
+      <GoalInput visible={isAddMode} onAddGoal={addGoalHandler}  onCancel={ hideModal }/>
       <FlatList
         keyExtractor={ (item, idx) => item.id }
         data={ courseGoals }
