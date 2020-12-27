@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TextInput, Button, TouchableWithoutFeedback, Ke
 import { Card } from '../components/Card'
 import { Input } from '../components/Input';
 import Colors from '../constants/colors';
+import {NumberContainer} from '../components/NumberContainer'
 
 export const StartGameScreen = props => {
     const [value, setValue] = useState('');
@@ -12,6 +13,7 @@ export const StartGameScreen = props => {
     const inputHandler = inputValue => {
 
         setValue(inputValue.replace(/[^0-9]/g,"") )
+        
     }
 
     const resetInputHandler = () => setValue('')
@@ -24,17 +26,23 @@ export const StartGameScreen = props => {
         setConfirmed(true)
         setValue('')
         setSelectedValue(userNumber)
-        console.log("tone")
+        Keyboard.dismiss()
     }
     
-    const showInvalidAlert = (text) => {
-        Alert.alert("invalid Number",text,[{text:"Ok", style: 'destructive', onPress: resetInputHandler }])
-    }
+    const showInvalidAlert = (text) =>  Alert.alert("invalid Number",text,[{text:"Ok", style: 'destructive', onPress: resetInputHandler }])
     const isValidNum = num => isNaN(num) ;
     const isLowRangeValid = num => num >= 0;
     const isHiRangeValid = num => num <= 99;
 
-    let confirmedOutput = confirmed ? <Text>Chosen Number : {selectedValue} </Text> : null
+    let confirmedOutput = confirmed 
+        ? 
+            <Card style={styles.summary}>
+                <Text>You Selected</Text>
+                <NumberContainer>{selectedValue}</NumberContainer>
+                <Button title="Start Game" />
+            </Card> 
+            
+        : null
 
     return (
         <TouchableWithoutFeedback onPress={ () => Keyboard.dismiss()}>
@@ -76,6 +84,10 @@ export const StartGameScreen = props => {
 }
 
 const styles = StyleSheet.create({
+    summary: {
+        marginVertical: 20,
+        alignItems: 'center'
+    },
     screen: {
         flex: 1,
         padding: 10,
