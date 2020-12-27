@@ -2,13 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Header } from './components/Header';
+import { StartGameScreen } from './screens/StartGameScreen';
 
 export default function App() {
 
   return (
     <View style={styles.container}>
       <Header title="Guess My Number" />
-      <StatusBar style="auto" />
+      <StartGameScreen/>
+      {/* <StatusBar style="auto" /> */}
     </View>
   );
 }
@@ -17,6 +19,9 @@ export default function App() {
 const styles = StyleSheet.create({
 
   container: {
-    padding: 0
+    flex: 1,
+    // backgroundColor: '#fff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
