@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, Button, Image } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { BodyText } from "../components/BodyText";
+import { MainButton } from "../components/MainButton";
 import { TitleText } from "../components/TitleText";
 import colors from "../constants/colors";
 // you can use local and network images
@@ -19,9 +20,9 @@ export const GameOver = (props) => {
         />
       </View>
       <View style={styles.resultContianer}>
-        <BodyText style={styles.resultText}> It took me <Text style={styles.highlight}> {props.numOfRounds}</Text>  rounds  Your Number is : <Text style={styles.highlight}>{props.userChoice}</Text> </BodyText>
+        <BodyText style={styles.resultText}> It took me <Text style={styles.highlight}> {props.numOfRounds}</Text>  rounds to find your Number is : <Text style={styles.highlight}>{props.userChoice}</Text> </BodyText>
         
-        <Button title="Play Again?" onPress={props.onNewGame} />
+        <MainButton title="Play Again?" onPress={props.onNewGame} />
       </View>
     </View>
   );

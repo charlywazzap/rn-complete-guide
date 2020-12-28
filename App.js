@@ -18,7 +18,7 @@ import * as Fonts from 'expo-font';
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null)
-  const [gameWon, setGameWon] = useState(true)
+  const [gameWon, setGameWon] = useState(false)
   const [rounds, setRounds] = useState(0)
   const [loaded, setLoaded ] = useState(false)
   let [fontsLoaded] = Fonts.useFonts({

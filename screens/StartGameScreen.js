@@ -6,6 +6,7 @@ import Colors from '../constants/colors';
 import {NumberContainer} from '../components/NumberContainer'
 import { TitleText } from '../components/TitleText';
 import { BodyText } from '../components/BodyText';
+import { MainButton } from '../components/MainButton';
 
 export const StartGameScreen = props => {
     const [value, setValue] = useState('');
@@ -41,7 +42,7 @@ export const StartGameScreen = props => {
             <Card style={styles.summary}>
                 <TitleText>You Selected</TitleText>
                 <NumberContainer>{selectedValue}</NumberContainer>
-                <Button title="Start Game" onPress={ props.onStartGame.bind(this,selectedValue) }/>
+                <MainButton title="Start Game" onPress={ props.onStartGame.bind(this,selectedValue) }/>
             </Card> 
             
         : null
