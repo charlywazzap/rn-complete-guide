@@ -39,7 +39,7 @@ export const StartGameScreen = props => {
             <Card style={styles.summary}>
                 <Text>You Selected</Text>
                 <NumberContainer>{selectedValue}</NumberContainer>
-                <Button title="Start Game" />
+                <Button title="Start Game" onPress={ props.onStartGame.bind(this,selectedValue) }/>
             </Card> 
             
         : null
