@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
-import { View, Text, StyleSheet, Button} from 'react-native'
+import React, {useState, useRef, useEffect } from 'react'
+import { View, Text, StyleSheet, Button, Alert} from 'react-native'
 import {NumberContainer} from '../components/NumberContainer'
 import { Card } from '../components/Card'
 import Colors from '../constants/colors'
+
+//useRef allows you to define a var that will survive component renders 
 
 const generateRandomBetween = (min, max, exclude) => {
     min = Math.ceil(min);
@@ -12,7 +14,30 @@ const generateRandomBetween = (min, max, exclude) => {
 }
 
 export const GameScreen = props => {
-    const [currentGuess, setCurrentGuess ] = useState(generateRandomBetween(1,100,props.userChoice))
+    const currentLow = useRef(1)
+    const currentHigh = useRef(100)
+    const rounds = useRef(0)
+    const [currentGuess, setCurrentGuess ] = useState(generateRandomBetween(currentLow.current,currentHigh.current,props.userChoice))
+    // runs after render
+    const { userChoice, onGameWon } = props;
+    useEffect(()=>{
+        if (isGuessCorrect(currentGuess)) {onGameWon(rounds.current)}
+    },[currentGuess,])
+
+    const nextGuessHandler = direction => {
+        if(isGreaterHintTrue(direction)) { showInvalidAlert(" You know this is wrong..., the number should be lower"); return}
+        if(isLowerHintTrue(direction)) { showInvalidAlert(" You know this is wrong..., the number should be higher"); return}
+        direction === 'lower' ?  currentHigh.current = currentGuess : currentLow.current = currentGuess;
+        const nextNum = generateRandomBetween(currentLow.current,currentHigh.current,currentGuess)
+        setCurrentGuess(nextNum)
+        rounds.current++
+    }
+
+    const showInvalidAlert = (text) =>  Alert.alert("Sneaky User...,",text,[{text:"Sorry", style: 'cancel'}])
+    const isGreaterHintTrue = hint => hint === 'lower' && currentGuess < userChoice ;
+    const isLowerHintTrue = hint =>  hint ==='greater' && currentGuess > userChoice ;
+    const isGuessCorrect = guess => guess === userChoice;
+
 
     return (
         <View style={styles.screen}>
@@ -22,10 +47,10 @@ export const GameScreen = props => {
             </NumberContainer>
             <Card style={styles.buttonContainer}>
                 <View style={styles.button}>
-                    <Button title="Lower" onPress={()=>{}} color={Colors.accent } />
+                    <Button title="Lower" onPress={nextGuessHandler.bind(this, 'lower')} color={Colors.accent } />
                     </View>
                 <View style={styles.button}>
-                    <Button title="Greater" onPress={()=>{}}color={Colors.primary }  />
+                    <Button title="Greater" onPress={nextGuessHandler.bind(this, 'greater')}color={Colors.primary }  />
                 </View>
             </Card>
         </View>
