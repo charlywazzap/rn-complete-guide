@@ -1,12 +1,14 @@
 import React from 'react'
 import { View, Text, StyleSheet, Button} from 'react-native'
+import { BodyText } from '../components/BodyText';
+import { TitleText } from '../components/TitleText'
 
 export const GameOver = props => {
     return (
         <View style={styles.screen}>
-            <Text> I Guessed Corretly ! </Text>
-            <Text> It took me {props.numOfRounds} rounds </Text>
-            <Text> Your Number is : {props.userChoice} </Text>
+            <TitleText> I Guessed Correctly ! </TitleText>
+            <BodyText> It took me {props.numOfRounds} rounds </BodyText>
+            <BodyText> Your Number is : {props.userChoice} </BodyText>
             <Button title="Play Again?" onPress={props.onNewGame} />
         </View>
     );

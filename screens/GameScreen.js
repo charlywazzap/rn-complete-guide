@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Button, Alert} from 'react-native'
 import {NumberContainer} from '../components/NumberContainer'
 import { Card } from '../components/Card'
 import Colors from '../constants/colors'
+import { TitleText } from '../components/TitleText'
+
 
 //useRef allows you to define a var that will survive component renders 
 
@@ -41,7 +43,7 @@ export const GameScreen = props => {
 
     return (
         <View style={styles.screen}>
-            <Text>Computer's Guess </Text>
+            <TitleText>Computer's Guess </TitleText>
             <NumberContainer>
                 {currentGuess}
             </NumberContainer>

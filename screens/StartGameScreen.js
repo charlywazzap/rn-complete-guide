@@ -4,6 +4,8 @@ import { Card } from '../components/Card'
 import { Input } from '../components/Input';
 import Colors from '../constants/colors';
 import {NumberContainer} from '../components/NumberContainer'
+import { TitleText } from '../components/TitleText';
+import { BodyText } from '../components/BodyText';
 
 export const StartGameScreen = props => {
     const [value, setValue] = useState('');
@@ -37,7 +39,7 @@ export const StartGameScreen = props => {
     let confirmedOutput = confirmed 
         ? 
             <Card style={styles.summary}>
-                <Text>You Selected</Text>
+                <TitleText>You Selected</TitleText>
                 <NumberContainer>{selectedValue}</NumberContainer>
                 <Button title="Start Game" onPress={ props.onStartGame.bind(this,selectedValue) }/>
             </Card> 
@@ -47,9 +49,9 @@ export const StartGameScreen = props => {
     return (
         <TouchableWithoutFeedback onPress={ () => Keyboard.dismiss()}>
             <View style={styles.screen}>
-                <Text style={styles.title}>Start a New Game!</Text>
+                <TitleText style={styles.title}>Start a New Game!</TitleText>
                 <Card style={styles.inputContainer}>
-                    <Text>Select a number</Text>
+                    <BodyText>Select a number</BodyText>
                     <Input style={ styles.input }
                         textAlign={'center'}
                         blurOnSubmit 
