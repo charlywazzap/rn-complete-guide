@@ -20,8 +20,16 @@ export const GameOver = (props) => {
         />
       </View>
       <View style={styles.resultContianer}>
-        <BodyText style={styles.resultText}> It took me <Text style={styles.highlight}> {props.numOfRounds}</Text>  rounds to find your Number is : <Text style={styles.highlight}>{props.userChoice}</Text> </BodyText>
-        
+        <BodyText style={styles.resultText}>
+          {" "}
+          It took me <Text style={styles.highlight}>
+            {" "}
+            {props.numOfRounds}
+          </Text>{" "}
+          rounds to find your Number is :{" "}
+          <Text style={styles.highlight}>{props.userChoice}</Text>{" "}
+        </BodyText>
+
         <MainButton title="Play Again?" onPress={props.onNewGame} />
       </View>
     </View>
@@ -47,21 +55,20 @@ const styles = StyleSheet.create({
     borderColor: "black",
     overflow: "hidden", // this allows the image not to overflow
   },
-  highlight:{
-      color: colors.accent,
-      fontFamily: 'open-sans-bold'
+  highlight: {
+    color: colors.accent,
+    fontFamily: "open-sans-bold",
   },
-  resultContianer:{
-      marginHorizontal: 30,
-      textAlign: "center",
-      alignItems: "center",
-      paddingVertical: 10,
+  resultContianer: {
+    marginHorizontal: 30,
+    textAlign: "center",
+    alignItems: "center",
+    paddingVertical: 10,
   },
-  resultText :{
-      fontSize: 20,
-      color: 'black',
-      textAlign: "center",
-      paddingVertical: 10,
-
-  }
+  resultText: {
+    fontSize: 20,
+    color: "black",
+    textAlign: "center",
+    paddingVertical: 10,
+  },
 });
