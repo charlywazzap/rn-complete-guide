@@ -5,11 +5,31 @@ import { Header } from './components/Header';
 import { GameOver } from './screens/GameOver';
 import { GameScreen } from './screens/GameScreen';
 import { StartGameScreen } from './screens/StartGameScreen';
+import AppLoading from 'expo-app-loading';
+import * as Fonts from 'expo-font';
+
+
+// const fetchFonts = () => {
+//   return Fonts.loadAsync({
+//     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+//     'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+//   });
+// }
 
 export default function App() {
   const [userNumber, setUserNumber] = useState(null)
   const [gameWon, setGameWon] = useState(false)
   const [rounds, setRounds] = useState(0)
+  const [loaded, setLoaded ] = useState(false)
+  let [fontsLoaded] = Fonts.useFonts({
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    'open-sans-bold': require('./assets/fonts/OpenSans-Bold.ttf')
+  });
+
+  if (!fontsLoaded){
+    // startAsync needs promise <AppLoading startAsync={fetchFonts} onFinish={() => {setLoaded(true)}} onError={ () => {console.log('error')}}/>
+    return <AppLoading />
+  }
   
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber)
@@ -21,7 +41,7 @@ export default function App() {
     setRounds(rounds)
   }
 
-  const gameOverHander = rounds => setRounds(rounds);
+  
   const newGameHandler = () => {
     setRounds(0)
     setUserNumber(null)
