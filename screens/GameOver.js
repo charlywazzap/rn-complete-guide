@@ -9,9 +9,11 @@ export const GameOver = props => {
             <TitleText> I Guessed Correctly ! </TitleText>
             <View style={styles.imageContiner}>    
                 <Image 
+                    fadeDuration={300}
                     resizeMode={'stretch'}
                     style={styles.image} 
-                    source={require('../assets/success.png')} 
+                   // source={require('../assets/success.png')} 
+                    source={{uri: 'https://cdn2.vectorstock.com/i/thumb-large/37/56/you-win-comic-speech-bubble-cartoon-game-assets-vector-9673756.jpg'}}
                 />
             </View>
             <BodyText> It took me {props.numOfRounds} rounds </BodyText>
