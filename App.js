@@ -57,6 +57,7 @@ export default function App() {
   if (gameWon) {
     content = <GameOver userChoice={userNumber} numOfRounds={rounds} onNewGame={newGameHandler}/>
   }
+  
 
   return (
     <View style={styles.container}>
