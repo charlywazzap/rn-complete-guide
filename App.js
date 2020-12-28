@@ -22,6 +22,11 @@ export default function App() {
   }
 
   const gameOverHander = rounds => setRounds(rounds);
+  const newGameHandler = () => {
+    setRounds(0)
+    setUserNumber(null)
+    setGameWon(false)
+  }
 
   let content = <StartGameScreen onStartGame={startGameHandler}/>
 
@@ -30,7 +35,7 @@ export default function App() {
   }
 
   if (gameWon) {
-    content = <GameOver userChoice={userNumber} numOfRounds={rounds}/>
+    content = <GameOver userChoice={userNumber} numOfRounds={rounds} onNewGame={newGameHandler}/>
   }
 
   return (
