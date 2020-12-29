@@ -7,6 +7,7 @@ import { TitleText } from "../components/TitleText";
 import { Ionicons } from "@expo/vector-icons"; // lots of icons!! :D https://icons.expo.fyi/
 import { MainButton } from "../components/MainButton";
 import { ListItem } from "../components/ListItem";
+import * as ScreenOrientation from 'expo-screen-orientation';
 
 //useRef allows you to define a var that will survive component renders
 
@@ -18,6 +19,7 @@ const generateRandomBetween = (min, max, exclude) => {
 };
 
 export const GameScreen = (props) => {
+  ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
   const rounds = useRef(0);
