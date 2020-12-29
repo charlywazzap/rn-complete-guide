@@ -13,19 +13,24 @@ export const GameOver = (props) => {
     const updateLayout = () => {
       setavailableDevHeight(Dimensions.get("window").height);
     };
-    Dimensions.addEventListener("change", updateLayout);
+      Dimensions.addEventListener("change", updateLayout);
     return () => {
       Dimensions.removeEventListener("change", updateLayout);
     };
   });
 
-  const myImageStyle = availableDevHeight < 600 ?   styles.imageContinerSmall : styles.imageContiner;
-
+  const combineStyles = StyleSheet.flatten([styles.imageContiner, {
+    marginVertical: Dimensions.get("window").height / 100,
+    width: Dimensions.get("window").height * 0.35,
+    height: Dimensions.get("window").height * 0.35,
+    borderRadius: (Dimensions.get("window").height * 0.35) / 2,
+  }]);   
+  
   return (
     <ScrollView>
       <View style={styles.screen}>
         <TitleText> I Guessed Correctly ! </TitleText>
-        <View style={myImageStyle}>
+        <View style={combineStyles}>
           <Image
             //fadeDuration={300}
             resizeMode={"stretch"}
