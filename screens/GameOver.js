@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet, Button, Image } from "react-native";
+import { View, Text, StyleSheet, Button, Image, Dimensions } from "react-native";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 import { BodyText } from "../components/BodyText";
 import { MainButton } from "../components/MainButton";
@@ -48,9 +48,9 @@ const styles = StyleSheet.create({
   },
   imageContiner: {
     marginVertical: 30,
-    width: "80%",
-    height: 300,
-    borderRadius: 500,
+    width: Dimensions.get('window').width / 2,
+    height: Dimensions.get('window').width / 2,
+    borderRadius: Dimensions.get('window').height / 2,
     borderWidth: 3,
     borderColor: "black",
     overflow: "hidden", // this allows the image not to overflow

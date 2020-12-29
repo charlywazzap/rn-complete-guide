@@ -79,7 +79,7 @@ export const GameScreen = (props) => {
         </ScrollView> */}
         <FlatList
           contentContainerStyle={styles.list}
-          keyExtractor={(item, idx) => idx}
+          keyExtractor={(item, idx) => idx.toString()}
           data={pastGuesses}
           renderItem={(item) => {
             return (
