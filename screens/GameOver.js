@@ -39,7 +39,7 @@ export const GameOver = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 20,
+    padding:  Dimensions.get('window').width / 30,
     alignItems: "center",
   },
   image: {
@@ -47,10 +47,10 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   imageContiner: {
-    marginVertical: 30,
-    width: Dimensions.get('window').width / 2,
-    height: Dimensions.get('window').width / 2,
-    borderRadius: Dimensions.get('window').height / 2,
+    marginVertical: Dimensions.get('window').width / 30,
+    width: Dimensions.get('window').width * .7 ,
+    height: Dimensions.get('window').width * .7,
+    borderRadius: Dimensions.get('window').width * .7 / 2,
     borderWidth: 3,
     borderColor: "black",
     overflow: "hidden", // this allows the image not to overflow
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   resultText: {
-    fontSize: 20,
+    fontSize:  Dimensions.get('window').height < 600 ? 14 : 20,
     color: "black",
     textAlign: "center",
     paddingVertical: 10,
