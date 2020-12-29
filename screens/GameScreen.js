@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, Text, StyleSheet, Button, Alert, ScrollView } from "react-native";
+import { View, Text, StyleSheet, Button, Alert, ScrollView, FlatList } from "react-native";
 import { NumberContainer } from "../components/NumberContainer";
 import { Card } from "../components/Card";
 import Colors from "../constants/colors";
@@ -21,9 +21,9 @@ export const GameScreen = (props) => {
   const currentLow = useRef(1);
   const currentHigh = useRef(100);
   const rounds = useRef(0);
-  const initGuess = useRef(generateRandomBetween(currentLow.current, currentHigh.current, props.userChoice))
+  const initGuess = useRef(generateRandomBetween(currentLow.current, currentHigh.current, props.userChoice));
   const [currentGuess, setCurrentGuess] = useState(initGuess.current);
-  const [pastGuesses, setPassGueses] = useState([initGuess.current])
+  const [pastGuesses, setPassGueses] = useState([initGuess.current]);
   // runs after render
   const { userChoice, onGameWon } = props;
   useEffect(() => {
@@ -41,17 +41,14 @@ export const GameScreen = (props) => {
       showInvalidAlert(" You know this is wrong..., the number should be higher");
       return;
     }
-    direction === "lower"
-      ? (currentHigh.current = currentGuess)
-      : (currentLow.current = currentGuess );
+    direction === "lower" ? (currentHigh.current = currentGuess) : (currentLow.current = currentGuess);
     const nextNum = generateRandomBetween(currentLow.current, currentHigh.current, currentGuess);
     setCurrentGuess(nextNum);
     rounds.current++;
-    setPassGueses(listOfGueses => [nextNum,...listOfGueses] )
+    setPassGueses((listOfGueses) => [nextNum, ...listOfGueses]);
   };
 
-  const showInvalidAlert = (text) =>
-    Alert.alert("Sneaky User...,", text, [{ text: "Sorry", style: "cancel" }]);
+  const showInvalidAlert = (text) => Alert.alert("Sneaky User...,", text, [{ text: "Sorry", style: "cancel" }]);
   const isGreaterHintTrue = (hint) => hint === "lower" && currentGuess < userChoice;
   const isLowerHintTrue = (hint) => hint === "greater" && currentGuess > userChoice;
   const isGuessCorrect = (guess) => guess === userChoice;
@@ -72,14 +69,27 @@ export const GameScreen = (props) => {
           </MainButton>
         </View>
       </Card>
-      <View style={styles.listContainer}>  
-        <ScrollView contentContainerStyle={styles.list} >
+      <View style={styles.listContainer}>
+        {/* <ScrollView contentContainerStyle={styles.list} >
           {pastGuesses.map((guess,idx) => (
             <ListItem key={idx}>
             <Text>Round # {idx + 1}</Text><Text>guess {guess}</Text>
             </ListItem>
           ))}
-        </ScrollView>
+        </ScrollView> */}
+        <FlatList
+          contentContainerStyle={styles.list}
+          keyExtractor={(item, idx) => idx}
+          data={pastGuesses}
+          renderItem={(item) => {
+            return (
+              <ListItem>
+                <Text>Round # {item.index + 1}</Text>
+                <Text>guess {item.item}</Text>
+              </ListItem>
+            );
+          }}
+        />
       </View>
     </View>
   );
@@ -102,14 +112,17 @@ const styles = StyleSheet.create({
     width: "55%",
     padding: 10,
   },
-  list:{
-   flexGrow: 1,  // Important to wrap this on scrollview
-    width: '80%',
-    
+  list: {
+    flexGrow: 1, // Important to wrap this on scrollview
+    width: "80%",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    alignContent: 'center'
   },
   listContainer: {
     flex: 1,
-    alignItems: "center",
-    justifyContent: "flex-end"
-  }
+    
+    justifyContent: "center",
+    width: "100%",
+  },
 });
