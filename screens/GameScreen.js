@@ -6,6 +6,7 @@ import Colors from "../constants/colors";
 import { TitleText } from "../components/TitleText";
 import { Ionicons } from "@expo/vector-icons"; // lots of icons!! :D https://icons.expo.fyi/
 import { MainButton } from "../components/MainButton";
+import { ListItem } from "../components/ListItem";
 
 //useRef allows you to define a var that will survive component renders
 
@@ -42,7 +43,7 @@ export const GameScreen = (props) => {
     }
     direction === "lower"
       ? (currentHigh.current = currentGuess)
-      : (currentLow.current = currentGuess + 1);
+      : (currentLow.current = currentGuess );
     const nextNum = generateRandomBetween(currentLow.current, currentHigh.current, currentGuess);
     setCurrentGuess(nextNum);
     rounds.current++;
@@ -71,13 +72,15 @@ export const GameScreen = (props) => {
           </MainButton>
         </View>
       </Card>
-      <ScrollView>
-        {pastGuesses.map((guess,idx) => (
-          <View key={idx}>
-            <Text>{guess}</Text>
-          </View>
-        ))}
-      </ScrollView>
+      <View style={styles.listContainer}>  
+        <ScrollView contentContainerStyle={styles.list} >
+          {pastGuesses.map((guess,idx) => (
+            <ListItem key={idx}>
+            <Text>Round # {idx + 1}</Text><Text>guess {guess}</Text>
+            </ListItem>
+          ))}
+        </ScrollView>
+      </View>
     </View>
   );
 };
@@ -99,4 +102,14 @@ const styles = StyleSheet.create({
     width: "55%",
     padding: 10,
   },
+  list:{
+   flexGrow: 1,  // Important to wrap this on scrollview
+    width: '80%',
+    
+  },
+  listContainer: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "flex-end"
+  }
 });
