@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, SafeAreaView } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
+import { MealNav } from './navigation/MealsNavigator';
 
 
 
@@ -14,9 +15,7 @@ export default function App() {
     return <AppLoading />;
   } 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text>Meal app</Text>
-    </SafeAreaView>
+    <MealNav></MealNav>
   );
 }
 
