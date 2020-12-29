@@ -24,6 +24,7 @@ export const StartGameScreen = (props) => {
   const [value, setValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
+  
 
   const inputHandler = (inputValue) => {
     setValue(inputValue.replace(/[^0-9]/g, ""));
@@ -136,7 +137,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
   },
   button: {
-    width: "55%",
+    width: Dimensions.get('window').width / 4,
     padding: 10,
   },
 });
