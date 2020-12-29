@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
         color: 'black',
         fontSize: Dimensions.get('window').height < 600 ? 14 : 20,
         fontFamily: 'open-sans-bold',
-        color: Platform.OS == 'android' ? 'white' : 'black' 
+        color: Platform.OS == 'android' ? 'white' : Colors.primary
     }
 })
