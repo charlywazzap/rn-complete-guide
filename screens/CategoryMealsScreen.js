@@ -1,8 +1,7 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
-import { FlatList } from "react-native-gesture-handler";
+import { StyleSheet } from "react-native";
 import { CATEGORIES, MEALS } from "../assets/data/dummy-data";
-import { MealItem } from "../components/MealItem";
+import { MealList } from "../components/MealList";
 
 export const CategoryMealsScreen = (props) => {
   const categoryId = props.navigation.getParam("categoryId");
@@ -11,18 +10,10 @@ export const CategoryMealsScreen = (props) => {
   const displayedMeals = MEALS.filter((meal) => meal.categoriesIds.indexOf(categoryId) >= 0);
 
   return (
-    <View style={styles.screen}>
-      <Text>The Category Meals : {selectedCategory.title}</Text>
-      <FlatList
-        style={{ width: "100%" }}
-        keyExtractor={(item, idx) => item.id}
-        data={displayedMeals}
-        renderItem={(itemData) => {
-          return <MealItem {...itemData.item}  onPress={() => props.navigation.navigate({ routeName: "MealDetails", params: {mealId: itemData.item.id }}) }/>;
-        }}
-      />
-
-    </View>
+    <MealList 
+      navigation={props.navigation}
+      data={ displayedMeals }
+    />
   );
 };
 
@@ -36,9 +27,4 @@ CategoryMealsScreen.navigationOptions = (navData) => {
 };
 // replace will remove the curent page wit the one you specify, useful with logins for example
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
 });

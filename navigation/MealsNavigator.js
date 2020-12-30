@@ -39,7 +39,7 @@ const FavoritesStackNav = createStackNavigator(
   {
     Favorites: {
       screen: FavoritiesScreen,
-      headerTitle: "Favorites",
+      headerTitle: "Your Favorites",
     },
     MealDetails: {
       screen: MealDetailsScreen,
