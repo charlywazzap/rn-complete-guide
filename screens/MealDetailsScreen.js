@@ -23,6 +23,7 @@ MealDetailsScreen.navigationOptions = (navData) => {
 
   return {
     headerTitle: selectedMeal.title,
+    headerRight: () => <Text>Fav!</Text>
   };
 };
 
