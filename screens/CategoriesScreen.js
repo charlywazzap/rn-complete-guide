@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet, Button, FlatList, TouchableOpacity } from "react-native";
 import { CATEGORIES } from "../assets/data/dummy-data";
+import { CategoryGridTile } from "../components/CategoryGridTile";
 
 const renderGridItem = (navigation, itemdata) => {
   return (
-    <TouchableOpacity
-      style={styles.gridItem}
+    <CategoryGridTile
+      title={itemdata.item.title}
+      color={itemdata.item.color}
       onPress={() =>
         navigation.navigate({
           routeName: "CategoryMeals",
@@ -14,11 +16,7 @@ const renderGridItem = (navigation, itemdata) => {
           },
         })
       }
-    >
-      <View>
-        <Text>{itemdata.item.title}</Text>
-      </View>
-    </TouchableOpacity>
+    />
   );
 };
 
