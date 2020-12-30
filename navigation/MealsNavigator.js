@@ -12,7 +12,7 @@ import { Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 const NavConfig = {
-  initialRouteName: "Categories",
+  //
   defaultNavigationOptions: {
     headerStyle: {
       backgroundColor: Platform.OS == "android" ? Colors.primary : "",
@@ -32,8 +32,20 @@ const MealNavigator = createStackNavigator(
       screen: MealDetailsScreen,
     },
   },
-  NavConfig
+  {...NavConfig ,  initialRouteName: "Categories"}
 );
+
+const FavoritesStackNav = createStackNavigator(
+  {
+    Favorites: {
+      screen: FavoritiesScreen,
+      headerTitle: "Favorites",
+    },
+    MealDetails: {
+      screen: MealDetailsScreen,
+    },
+  }, NavConfig);
+
 
 const TabConfig =   {
   Meals: {
@@ -47,7 +59,7 @@ const TabConfig =   {
     },
   },
   Favorites: {
-    screen: FavoritiesScreen,
+    screen: FavoritesStackNav,
     navigationOptions: {
       tabBarColor: Colors.primary,
       tabBarIcon: (tabInfo) => {
