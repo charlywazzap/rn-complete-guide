@@ -16,6 +16,16 @@ export const CategoryMealsScreen = (props) => {
     </View>
   );
 };
+
+CategoryMealsScreen.navigationOptions = (navData) => {
+  const categoryId = navData.navigation.getParam('categoryId')
+  const selectedCategory = CATEGORIES.find(cat => cat.id === categoryId)
+
+  return {
+    headerTitle: selectedCategory.title
+    
+  }
+}
 // replace will remove the curent page wit the one you specify, useful with logins for example
 const styles = StyleSheet.create({
   screen: {
