@@ -18,13 +18,10 @@ export const CategoryMealsScreen = (props) => {
         keyExtractor={(item, idx) => item.id}
         data={displayedMeals}
         renderItem={(itemData) => {
-          return <MealItem {...itemData.item} />;
+          return <MealItem {...itemData.item}  onPress={() => props.navigation.navigate({ routeName: "MealDetails", params: {mealId: itemData.item.id }}) }/>;
         }}
       />
-      <Button title={"Go to Details"} onPress={() => props.navigation.navigate("MealDetails")} />
-      <Button title={"Go to back"} onPress={() => props.navigation.goBack()} />
-      <Button title={"Go to back with pop (only works withstack navs)"} onPress={() => props.navigation.pop()} />
-      <Button title={"Go to Details with replace"} onPress={() => props.navigation.replace("MealDetails")} />
+
     </View>
   );
 };
