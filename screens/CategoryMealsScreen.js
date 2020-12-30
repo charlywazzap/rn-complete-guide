@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { CATEGORIES, MEALS } from "../assets/data/dummy-data";
 import { MealList } from "../components/MealList";
 
+
 export const CategoryMealsScreen = (props) => {
   const categoryId = props.navigation.getParam("categoryId");
   const selectedCategory = CATEGORIES.find((cat) => cat.id === categoryId);
@@ -23,6 +24,7 @@ CategoryMealsScreen.navigationOptions = (navData) => {
 
   return {
     headerTitle: selectedCategory.title,
+
   };
 };
 // replace will remove the curent page wit the one you specify, useful with logins for example
