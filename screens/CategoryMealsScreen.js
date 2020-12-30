@@ -23,7 +23,6 @@ CategoryMealsScreen.navigationOptions = (navData) => {
 
   return {
     headerTitle: selectedCategory.title
-    
   }
 }
 // replace will remove the curent page wit the one you specify, useful with logins for example
