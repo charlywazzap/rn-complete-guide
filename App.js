@@ -5,12 +5,13 @@ import { Ionicons } from "@expo/vector-icons";
 import * as Fonts from "expo-font";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
+import { productsReducer  } from './store/reducers/products'
 
+const rootReducer = combineReducers({
+  products: productsReducer
+});
 
-// const rootReducer = combineReducers({
-// });
-
-// const store = createStore(rootReducer);
+const store = createStore(rootReducer);
 
 export default function App() {
   let [fontsLoaded, error] = Fonts.useFonts({
@@ -22,11 +23,11 @@ export default function App() {
   }
 
   return (
-   // <Provider store={store}>
+    <Provider store={store}>
       <View>
         <Text>START</Text>
       </View>
-   // </Provider>
+    </Provider>
   );
 }
 

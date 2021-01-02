@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet} from 'react-native'
+import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native'
 
 export const ProductOverviewScreen = props => {
     return (
@@ -9,4 +9,6 @@ export const ProductOverviewScreen = props => {
     );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    
+})
