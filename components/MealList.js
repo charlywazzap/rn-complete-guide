@@ -14,7 +14,7 @@ export const MealList = (props) => {
             <MealItem
               {...itemData.item}
               onPress={() =>
-                props.navigation.navigate({ routeName: "MealDetails", params: { mealId: itemData.item.id } })
+                props.navigation.navigate({ routeName: "MealDetails", params: { mealId: itemData.item.id, mealTitle: itemData.item.title } })
               }
             />
           );
