@@ -1,19 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, SafeAreaView } from "react-native";
+import { StyleSheet, Text, SafeAreaView, View } from "react-native";
 import AppLoading from "expo-app-loading";
-import { MealNav } from "./navigation/MealsNavigator";
 import { Ionicons } from "@expo/vector-icons";
 import * as Fonts from "expo-font";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 
-import { mealsReducer } from "./store/reducers/meals";
 
-const rootReducer = combineReducers({
-  meals: mealsReducer,
-});
+// const rootReducer = combineReducers({
+// });
 
-const store = createStore(rootReducer);
+// const store = createStore(rootReducer);
 
 export default function App() {
   let [fontsLoaded, error] = Fonts.useFonts({
@@ -23,11 +20,13 @@ export default function App() {
   if (!fontsLoaded) {
     return <AppLoading />;
   }
-  console.log(error);
+
   return (
-    <Provider store={store}>
-      <MealNav></MealNav>
-    </Provider>
+   // <Provider store={store}>
+      <View>
+        <Text>START</Text>
+      </View>
+   // </Provider>
   );
 }
 
