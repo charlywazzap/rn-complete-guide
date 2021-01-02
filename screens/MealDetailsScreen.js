@@ -33,6 +33,7 @@ export const MealDetailsScreen = (props) => {
     props.navigation.setParams({isFav: currentMealisFav })
   },[currentMealisFav])
 
+  
   return (
     <ScrollView>
       <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
