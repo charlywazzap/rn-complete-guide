@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, StyleSheet, Switch, Platform } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
-import {HeaderButton} from '../components/HeaderButton';
+import {CustomHeaderButton} from '../components/HeaderButton';
 import Colors from '../constants/colors';
 
  const FilterSwitch = props => {
@@ -73,7 +73,7 @@ FilterScreen.navigationOptions = navData => {
   return {
     headerTitle: 'Filter Meals',
     headerLeft: (
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Menu"
           iconName="ios-menu"
@@ -84,7 +84,7 @@ FilterScreen.navigationOptions = navData => {
       </HeaderButtons>
     ),
     headerRight: (
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Save"
           iconName="ios-save"
