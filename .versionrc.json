@@ -10,6 +10,6 @@
     {"type": "perf", "hidden": true},
     {"type": "test", "hidden": true}
   ],
-  "commitUrlFormat": "https://github.com/charlywazzap/rn-complete-guide/commits/{{hash}}",
+  "commitUrlFormat": "https://github.com/charlywazzap/rn-complete-guide/commit/{{hash}}",
   "compareUrlFormat": "https://github.com/charlywazzap/rn-complete-guide/compare/{{previousTag}}...{{currentTag}}"
 }
