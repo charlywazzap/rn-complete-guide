@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.6...v0.0.7) (2021-01-03)
+
+
+### Features
+
+* **Cart Screen:** Add cart Details screen listing of cart items ([edd57e1](https://github.com/charlywazzap/rn-complete-guide/commits/edd57e1c699ce84c569a1d0d095d169bdf69e6e5))
+* **Cart Screen:** add Cart Screen Functionality with store actions ([b59ac64](https://github.com/charlywazzap/rn-complete-guide/commits/b59ac64470b23704ead80645deb2473ba58d64ab))
+* **Product Overview Screen:** add cart header button ([cf2b0bc](https://github.com/charlywazzap/rn-complete-guide/commits/cf2b0bc9389ba4dfcec7e4658423c93d93dc9788))
+
+
+### Bug Fixes
+
+* **cart model:** add missing property on constructor ([16725ff](https://github.com/charlywazzap/rn-complete-guide/commits/16725ff8535e5e2a73f500e0f97a2362ce5b895d))
+* **cart store:** fix typo on cart state amount ([46ab84d](https://github.com/charlywazzap/rn-complete-guide/commits/46ab84d94dfb6679a0a16846421cdfd8b7ab4927))
+* **Nav Options:** Fix incorrect key for styles in default nav options ([5271f46](https://github.com/charlywazzap/rn-complete-guide/commits/5271f4687adca6c75495f3db0a1a5227e1bc00c6))
+
 ### [0.0.6](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.5...v0.0.6) (2021-01-03)
 
 
