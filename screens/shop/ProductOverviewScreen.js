@@ -12,8 +12,18 @@ export const ProductOverviewScreen = props => {
                     return (
                         <ProductItem 
                             {...itemData.item}
-                            onAddToCart={() => {}}
-                            onViewDetails={() => {}}
+                            onAddToCart={() => {
+                  
+                            }}
+                            onViewDetails={() => {
+                                props.navigation.navigate({
+                                    routeName: 'ProductDetail',
+                                    params:{
+                                        productId: itemData.item.id,
+                                        productTitle: itemData.item.title
+                                    }
+                                })
+                            }}
                         />
                     )
                 }}
