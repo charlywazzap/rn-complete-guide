@@ -35,7 +35,7 @@ export const ProductOverviewScreen = (props) => {
   );
 };
 
-ProductOverviewScreen.navigationOptions = {
+ProductOverviewScreen.navigationOptions = (navData) => ({
   headerTitle: "All Products",
   headerRight: () => {
       return (
@@ -43,11 +43,13 @@ ProductOverviewScreen.navigationOptions = {
               <Item 
                 title="Cart"
                 iconName={Platform.OS == 'android' ? 'md-cart' : 'ios-cart'}
-                onPress={() => {}}
+                onPress={() => {
+                    navData.navigation.navigate('Cart')
+                }}
               />
           </HeaderButtons>
       )
   }
-};
+});
 
 const styles = StyleSheet.create({});
