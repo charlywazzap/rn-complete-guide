@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, FlatList, ScrollView } from 'react-native'
 import { useSelector } from 'react-redux'
+import { ProductItem } from '../../components/shop/ProductItem'
 
 export const ProductOverviewScreen = props => {
      const products = useSelector(state => state.products.availableProducts)
@@ -9,12 +10,17 @@ export const ProductOverviewScreen = props => {
                 data={ products }
                 renderItem={itemData => {
                     return (
-                        <Text>{itemData.item.title}</Text>
+                        <ProductItem 
+                            {...itemData.item}
+                            onAddToCart={() => {}}
+                            onViewDetails={() => {}}
+                        />
                     )
                 }}
             />
     );
 }
+
 
 ProductOverviewScreen.navigationOptions = {
     headerTitle: 'All Products'
