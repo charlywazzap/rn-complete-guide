@@ -3,6 +3,6 @@ export class CartItem {
     this.quantity =quantity;
     this.productPrice = productPrice;
     this.productTitle = productTitle
-    this.sum
+    this.sum = sum
   }
 }
