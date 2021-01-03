@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, Button} from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import { useSelector } from 'react-redux'
 import colors from '../../constants/colors'
+import { DefaultText } from '../../components/DefaultText'
 
 export const ProductDetailScren = props => {
     const productId = props.navigation.getParam('productId')
@@ -11,8 +12,8 @@ export const ProductDetailScren = props => {
       <ScrollView >
           <Image style={styles.image} source={{ uri: selectedProduct.imageUrl }} />
           <Button color={colors.primary} title="Add To Cart" onPress={() => {}}/>
-          <Text style={styles.price}>${selectedProduct.price.toFixed(2)}</Text>
-          <Text style={styles.description}>{selectedProduct.description}</Text>
+          <DefaultText style={styles.price}>${selectedProduct.price.toFixed(2)}</DefaultText>
+          <DefaultText style={styles.description}>{selectedProduct.description}</DefaultText>
       </ScrollView>
     );
 }
