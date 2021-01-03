@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: "open-sans-bold",
     fontSize: 18,
-    marginVertical: 4,
+    marginVertical: 0,
   },
   price: {
     fontSize: 14,

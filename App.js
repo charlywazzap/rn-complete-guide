@@ -6,13 +6,17 @@ import * as Fonts from "expo-font";
 import { createStore, combineReducers } from "redux";
 import { Provider } from "react-redux";
 import { productsReducer  } from './store/reducers/products'
+import { cartReducer  } from './store/reducers/cart'
+
 import {  ProductNav} from './navigation/ShopNavigator'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
 const rootReducer = combineReducers({
-  products: productsReducer
+  products: productsReducer,
+  cart: cartReducer
 });
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer,composeWithDevTools());
 
 export default function App() {
   let [fontsLoaded, error] = Fonts.useFonts({

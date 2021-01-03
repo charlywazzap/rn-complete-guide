@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
+    "redux-devtools-extension": "^2.13.8",
     "standard-version": "^9.1.0"
   },
   "private": true
