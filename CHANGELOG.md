@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.5...v0.0.6) (2021-01-03)
+
+
+### Features
+
+* **Cart Actions and Store:** add action and store for cart functionality ([6d0ea68](https://github.com/charlywazzap/rn-complete-guide/commits/6d0ea68c946354da18061ca7d01e91249e88256a))
+
 ### [0.0.5](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.4...v0.0.5) (2021-01-03)
 
 ### [0.0.4](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.3...v0.0.4) (2021-01-03)
