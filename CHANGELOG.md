@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.3](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.2...v0.0.3) (2021-01-03)
+
+
+### Bug Fixes
+
+* **version control:** add missing version.json file ([d773b82](https://github.com/charlywazzap/rn-complete-guide/commits/d773b82f59512818e15d11f19dc24cc9c0a898a3))
+
 ### [0.0.2](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.1...v0.0.2) (2021-01-03)
 
 ### 0.0.1 (2021-01-03)
