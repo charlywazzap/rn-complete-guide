@@ -9,6 +9,7 @@ import * as cartActions from "../../store/actions/cart";
 export const CartScreen = (props) => {
   const dispatch = useDispatch()
   const cartTotalAmount = useSelector((state) => state.cart.totalAmount);
+
   const cartItems = useSelector((state) => {
     const transformedItems = []; 
     for (const key in state.cart.items) {
@@ -20,7 +21,7 @@ export const CartScreen = (props) => {
         sum: state.cart.items[key].sum,
       })
     }
-    return transformedItems
+    return transformedItems.sort((a,b) => a.productId > b.productId ? 1: -1)
   });
 
   return (
