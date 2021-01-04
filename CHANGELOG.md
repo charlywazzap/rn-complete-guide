@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.1.0](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.7...v0.1.0) (2021-01-04)
+
+
+### Features
+
+* **Cart Screen:** Add product id ordering in cart sreen ([e8ed130](https://github.com/charlywazzap/rn-complete-guide/commit/e8ed130491e192fcce287ecf7f00d0369de3ac98))
+* **Cart State and Screen:** add remove item logic and UI update ([81be777](https://github.com/charlywazzap/rn-complete-guide/commit/81be777eb02b9d41c6bf95fba4c98d1174abd722))
+
+
+### Documentation
+
+* update commit reference ([ebd0bff](https://github.com/charlywazzap/rn-complete-guide/commit/ebd0bffd7079961f49f87a952d361502ee7bda8d))
+
 ### [0.0.7](https://github.com/charlywazzap/rn-complete-guide/compare/v0.0.6...v0.0.7) (2021-01-03)
 
 
