@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/charlywazzap/rn-complete-guide/compare/v0.1.1...v0.1.2) (2021-01-04)
+
+
+### Features
+
+* **Order Item:** simple order item screen and button for details ([1e525c1](https://github.com/charlywazzap/rn-complete-guide/commit/1e525c1bf7bc917bceda0ab42c8542b40d376e03))
+* **Order Screen:** add details ui and functionality ([20e9513](https://github.com/charlywazzap/rn-complete-guide/commit/20e95134978c124d22f7eacbccedfd40333c70c0))
+
 ### [0.1.1](https://github.com/charlywazzap/rn-complete-guide/compare/v0.1.0...v0.1.1) (2021-01-04)
 
 
