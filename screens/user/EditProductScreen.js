@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from "react";
-import { View, Text, StyleSheet, ScrollView, TextInput } from "react-native";
+import { View, Text, StyleSheet, ScrollView, TextInput, Alert } from "react-native";
 import { HeaderButton, HeaderButtons, Item } from "react-navigation-header-buttons";
 import { CustomHeaderButton } from "../../components/UI/CustomHeaderButton";
 import { useSelector, useDispatch } from "react-redux";
@@ -20,9 +20,11 @@ export const EditProductScreen = (props) => {
   const submitHandler = useCallback(() => {
      if (editedProduct) {
       dispatch(productActions.updateProduct(prodId,title,description,imageUrl))
+      props.navigation.goBack()
       return
      } 
      dispatch(productActions.createProduct(title,description,imageUrl,+price))
+     props.navigation.goBack()
   }, [dispatch,prodId,title,description,imageUrl,price]);
 
   useEffect(() => {
