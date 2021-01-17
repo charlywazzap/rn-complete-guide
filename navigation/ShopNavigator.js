@@ -11,6 +11,7 @@ import { OrdersScreen } from "../screens/shop/OrdersScreen";
 import { createDrawerNavigator } from "react-navigation-drawer";
 import { Ionicons } from "@expo/vector-icons";
 import { UserProductScreen } from '../screens/user/UserProductScreen'
+import { EditProductScreen } from "../screens/user/EditProductScreen";
 
 const defatulNavOptions = {
   headerStyle: {
@@ -66,6 +67,7 @@ const OrdersNavigator = createStackNavigator(
 const AdminNavigator = createStackNavigator(
   {
     UserProducts: UserProductScreen,
+    EditProduct: EditProductScreen
   },
   {
     navigationOptions: {
