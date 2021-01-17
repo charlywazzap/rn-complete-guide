@@ -1,14 +1,28 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, ScrollView, Platform } from "react-native";
+import { View, Text, StyleSheet, FlatList, Button, Platform } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { ProductItem } from "../../components/shop/ProductItem";
 import * as cartActions from "../../store/actions/cart";
 import { HeaderButton, HeaderButtons, Item } from 'react-navigation-header-buttons'
 import { CustomHeaderButton } from "../../components/UI/CustomHeaderButton";
+import colors from '../../constants/colors'
 
 export const ProductOverviewScreen = (props) => {
   const products = useSelector((state) => state.products.availableProducts);
   const dispatch = useDispatch();
+
+  const handleViewDetails = (id,title) => {
+    props.navigation.navigate({
+      routeName: "ProductDetail",
+      params: {
+        productId: id,
+        productTitle: title,
+      },
+    })
+  }
+  const handleAddToCart = (item) => {
+    dispatch(cartActions.addToCart(item));
+  }
   return (
     <FlatList
       data={products}
@@ -16,19 +30,11 @@ export const ProductOverviewScreen = (props) => {
         return (
           <ProductItem
             {...itemData.item}
-            onAddToCart={() => {
-              dispatch(cartActions.addToCart(itemData.item));
-            }}
-            onViewDetails={() => {
-              props.navigation.navigate({
-                routeName: "ProductDetail",
-                params: {
-                  productId: itemData.item.id,
-                  productTitle: itemData.item.title,
-                },
-              });
-            }}
-          />
+            onSelect={handleViewDetails.bind(null,itemData.item.id,itemData.item.title)}
+          >
+              <Button color={colors.primary} title="View Details" onPress={handleViewDetails.bind(null,itemData.item.id,itemData.item.title)} />
+              <Button color={colors.primary} title="Add To Card" onPress={() => {handleAddToCart(itemData.item)}} />
+          </ProductItem>
         );
       }}
     />

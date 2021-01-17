@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet, FlatList, Platform } from "react-native";
+import { View, Button, StyleSheet, FlatList, Platform } from "react-native";
 import { ProductItem } from "../../components/shop/ProductItem";
 import { useSelector } from "react-redux";
 import { HeaderButton, HeaderButtons, Item } from 'react-navigation-header-buttons'
 import { CustomHeaderButton } from "../../components/UI/CustomHeaderButton";
+import colors from '../../constants/colors'
 
 
 export const UserProductScreen = (props) => {
@@ -14,11 +15,12 @@ export const UserProductScreen = (props) => {
       keyExtractor={(item) => item.id}
       renderItem={(itemData) => {
         return <ProductItem {...itemData.item} 
-        onAddToCart={() => {
-        }}
-        onViewDetails={() => {}}
+        onSelect={() => {}}
         
-        />;
+        >
+            <Button color={colors.primary} title="Edit" onPress={() => {}} />
+            <Button color={colors.primary} title="Delete" onPress={() => {} }/>  
+        </ProductItem>;
       }}
     />
   );
