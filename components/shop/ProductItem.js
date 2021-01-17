@@ -8,11 +8,12 @@ import {
   TouchableNativeFeedback,
 } from "react-native";
 import { DefaultText } from '../../components/DefaultText'
+import { Card } from "../UI/Card";
 
 export const ProductItem = (props) => {
   const Wrapper = Platform.OS == "android" && Platform.Version >= 21 ? TouchableNativeFeedback : TouchableOpacity;
   return (
-    <View style={styles.container}>
+    <Card style={styles.container}>
       <View style={styles.touchable}>
         <Wrapper onPress={props.onSelect} useForeground>
           <View>
@@ -29,21 +30,12 @@ export const ProductItem = (props) => {
           </View>
         </Wrapper>
       </View>
-    </View>
+    </Card>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    shadowColor: "black",
-    shadowOffset: {
-      width:3,
-      height: 7,
-    },
-    shadowOpacity: 0.26,
-    elevation: 6,
-    borderRadius: 10,
-    backgroundColor: "white",
     height: 300,
     margin: 20,
   },

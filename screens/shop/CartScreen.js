@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, FlatList, Button } from "react-native";
 import { useSelector, useDispatch } from 'react-redux'
 import { DefaultText } from "../../components/DefaultText";
 import { CartItem } from "../../components/shop/CartItem";
+import { Card } from "../../components/UI/Card";
 import colors from "../../constants/colors";
 import * as cartActions from "../../store/actions/cart";
 import * as orderActions from "../../store/actions/orders";
@@ -28,7 +29,7 @@ export const CartScreen = (props) => {
 
   return (
     <View style={styles.screen}>
-      <View style={styles.summary}>
+      <Card style={styles.summary}>
         <DefaultText style={styles.summaryText}>
           Total: <Text style={styles.amount}>${cartTotalAmount.toFixed(2)}</Text>{" "}
         </DefaultText>
@@ -36,7 +37,7 @@ export const CartScreen = (props) => {
         <Button title="Order Now" onPress={() => {
           dispatch(orderActions.addOrder(cartItems,cartTotalAmount))
         }} disabled={cartItems.length == 0}/>
-      </View>
+      </Card>
       <View>
         <Text>Cart Items </Text>
         <FlatList 
@@ -73,16 +74,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     padding: 10,
-    shadowColor: "black",
-    marginBottom: 10,
-    shadowOffset: {
-      width: 3,
-      height: 7,
-    },
-    shadowOpacity: 0.26,
-    elevation: 6,
-    borderRadius: 10,
-    backgroundColor: "white",
   },
   summaryText: {
     fontSize: 18,
